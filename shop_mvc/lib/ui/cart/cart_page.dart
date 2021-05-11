@@ -6,7 +6,7 @@ import 'package:shop_mvc/ui/widgets/defaut_page_layout.dart';
 class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final controller = InheritedController.of<ShopController>(context);
+    final controller = InheritedProvider.of<ShopController>(context);
     final cartList = controller.cart;
 
     return Scaffold(

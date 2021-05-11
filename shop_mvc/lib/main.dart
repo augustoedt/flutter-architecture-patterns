@@ -11,7 +11,7 @@ void main() {
 class ShopApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return InheritedController(
+    return InheritedProvider(
       controllers:[
         ShopController()
       ],
