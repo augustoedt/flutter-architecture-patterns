@@ -3,7 +3,7 @@
 
 A very simple Flutter Shop App that implements the MVC pattern for study purpose.
 
-Provider + ChangeNotifier implementation for state manager
+Provider for dependency injection and state manager.
 
 ## Content
 - View: ShopView, CartView

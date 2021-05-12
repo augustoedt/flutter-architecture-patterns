@@ -4,7 +4,7 @@
 A very simple Flutter Shop App that implements the MVC pattern for study purpose.
 
 
-Pure Dart+Flutter code, no packages.
+Pure Dart+Flutter code, no packages, InheritedWidget as Dependency Injection
 
 ## Content
 - View: ShopView, CartView
@@ -12,5 +12,4 @@ Pure Dart+Flutter code, no packages.
 - Model: Category, Product, Cart
 
 ## State Management
-- InheritedWidget
 - setState()
