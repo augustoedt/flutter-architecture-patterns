@@ -9,14 +9,14 @@ class CartPage extends StatelessWidget {
     final controller = InheritedProvider.of<CartController>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Cart'),
-      ),
-      body: DefaultPageLayout(
-        child: Column(
-            // children:
-            //     cartList.map((e) => ListTile(title: Text(e.name))).toList()),
-      ),)
-    );
+        appBar: AppBar(
+          title: Text('Cart'),
+        ),
+        body: DefaultPageLayout(
+          child: Column(
+              children: controller.viewCartItems
+                  .map((e) => ListTile(title: Text(e.product.name)))
+                  .toList()),
+        ));
   }
 }

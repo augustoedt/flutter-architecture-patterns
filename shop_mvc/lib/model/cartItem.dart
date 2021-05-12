@@ -6,14 +6,6 @@ class CartItem{
 
   CartItem(this.product,{this.total}):assert(product!=null);
 
-  void add(){
-    this.total+=1;
-  }
-
-  void remove(){
-    if(total>1) this.total-=1;
-  }
-
   bool isEqual(Product product){
     return product.name == this.product.name;
   }
