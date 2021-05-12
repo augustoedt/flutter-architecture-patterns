@@ -53,19 +53,13 @@ class _ShopPageState extends State<ShopPage> {
               Wrap(
                 children: List.generate(
                     shopController.products.length,
-                    (index) => AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 600),
-                          transitionBuilder: (child, animation) =>
-                              ScaleTransition(scale: animation, child: child),
-                          child: TileProductItem(
-                            key: ValueKey<String>(shopController.viewProducts[index].name),
-                            product: shopController.viewProducts[index],
-                            onPressed: () {
-                              cartController.addProduct(shopController.viewProducts[index]);
-                              setState(() {});
-                            },
-                          ),
-                        )),
+                    (index) => TileProductItem(
+                      product: shopController.products[index],
+                      onAddCart: (selectedProduct){
+                        cartController.addProduct(selectedProduct);
+                        setState(() {});
+                      },
+                    )),
               ),
             ],
           ),

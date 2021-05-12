@@ -28,7 +28,7 @@ class CounterButton extends StatelessWidget {
         child: counter == 0
             ? SizedBox.shrink()
             : Container(
-                key: UniqueKey(),
+                key: ValueKey<int>(counter),
                 padding: const EdgeInsets.all(4),
                 decoration: counterBox,
                 child: Text(counter.toString()??''),
