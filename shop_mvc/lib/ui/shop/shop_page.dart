@@ -7,7 +7,7 @@ import 'package:shop_mvc/ui/widgets/counter_buttom.dart';
 import 'package:shop_mvc/ui/widgets/defaut_page_layout.dart';
 import '../../inherited_provider.dart';
 import '../widgets/drowpdown_widget.dart';
-import '../widgets/product_item.dart';
+import '../widgets/tile_product_item.dart';
 
 class ShopPage extends StatefulWidget {
   @override
@@ -57,7 +57,7 @@ class _ShopPageState extends State<ShopPage> {
                           duration: const Duration(milliseconds: 600),
                           transitionBuilder: (child, animation) =>
                               ScaleTransition(scale: animation, child: child),
-                          child: ProductItem(
+                          child: TileProductItem(
                             key: ValueKey<String>(shopController.viewProducts[index].name),
                             product: shopController.viewProducts[index],
                             onPressed: () {

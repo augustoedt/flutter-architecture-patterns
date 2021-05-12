@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mvc/controller/cart_controller.dart';
 import 'package:shop_mvc/inherited_provider.dart';
-import 'package:shop_mvc/ui/widgets/cart_item_tile.dart';
+import 'package:shop_mvc/ui/widgets/tile_cart_item.dart';
 import 'package:shop_mvc/ui/widgets/defaut_page_layout.dart';
 
 class CartPage extends StatefulWidget {
@@ -21,7 +21,7 @@ class _CartPageState extends State<CartPage> {
         body: DefaultPageLayout(
           child: Column(
               children: controller.viewCartItems
-                  .map((e) => CartItemTile(item: e, onRemove: (product){
+                  .map((e) => TileCartItem(item: e, onRemove: (product){
                     controller.removeProduct(product);
                     setState(() {});
               }))

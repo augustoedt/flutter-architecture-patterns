@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mvc/model/product.dart';
 
-class ProductItem extends StatelessWidget {
+class TileProductItem extends StatelessWidget {
   final Product product;
   final VoidCallback onPressed;
 
-  const ProductItem({Key key, this.product, this.onPressed}) : super(key: key);
+  const TileProductItem({Key key, this.product, this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

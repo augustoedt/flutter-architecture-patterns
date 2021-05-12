@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:shop_mvc/model/cart_item.dart';
 import 'package:shop_mvc/model/product.dart';
 
-class CartItemTile extends StatelessWidget {
+class TileCartItem extends StatelessWidget {
   final CartItem item;
   final ValueChanged<Product> onRemove;
 
-  const CartItemTile({Key key, this.item, this.onRemove}) : super(key: key);
+  const TileCartItem({Key key, this.item, this.onRemove}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
