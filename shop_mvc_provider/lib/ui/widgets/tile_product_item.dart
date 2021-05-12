@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shop_mvc/model/product.dart';
+import 'package:shop_mvc_provider/model/product.dart';
 
 class TileProductItem extends StatelessWidget {
-
+  
   final Product product;
   final ValueChanged<Product> onAddCart;
 
