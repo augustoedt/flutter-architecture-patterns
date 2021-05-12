@@ -1,4 +1,4 @@
-import 'package:shop_mvc/model/cartItem.dart';
+import 'package:shop_mvc/model/cart_item.dart';
 import 'package:shop_mvc/model/product.dart';
 
 class CartController {

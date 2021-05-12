@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mvc/controller/cart_controller.dart';
 import 'package:shop_mvc/inherited_provider.dart';
+import 'package:shop_mvc/ui/widgets/cart_item_tile.dart';
 import 'package:shop_mvc/ui/widgets/defaut_page_layout.dart';
 
-class CartPage extends StatelessWidget {
+class CartPage extends StatefulWidget {
+  @override
+  _CartPageState createState() => _CartPageState();
+}
+
+class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     final controller = InheritedProvider.of<CartController>(context);
@@ -15,7 +21,10 @@ class CartPage extends StatelessWidget {
         body: DefaultPageLayout(
           child: Column(
               children: controller.viewCartItems
-                  .map((e) => ListTile(title: Text(e.product.name)))
+                  .map((e) => CartItemTile(item: e, onRemove: (product){
+                    controller.removeProduct(product);
+                    setState(() {});
+              }))
                   .toList()),
         ));
   }
