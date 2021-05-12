@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_mvc/controller/shop_controller.dart';
 import 'package:shop_mvc/ui/shop/shop_page.dart';
 
+import 'controller/cart_controller.dart';
 import 'inherited_provider.dart';
 
 void main() {
@@ -13,6 +14,7 @@ class ShopApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return InheritedProvider(
       controllers:[
+        CartController(),
         ShopController()
       ],
       child: MaterialApp(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_mvc/controller/cart_controller.dart';
 import 'package:shop_mvc/controller/shop_controller.dart';
 import 'package:shop_mvc/model/category.dart';
 import 'package:shop_mvc/ui/cart/cart_page.dart';
@@ -16,8 +17,8 @@ class ShopPage extends StatefulWidget {
 class _ShopPageState extends State<ShopPage> {
   @override
   Widget build(BuildContext context) {
-    final controller = context.fetch<ShopController>();
-    final viewProducts = controller.viewProducts;
+    final shopController = context.fetch<ShopController>();
+    final cartController = context.fetch<CartController>();
 
     return Scaffold(
         appBar: AppBar(
@@ -30,7 +31,7 @@ class _ShopPageState extends State<ShopPage> {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (_) => CartPage()));
                 },
-                counter: controller.cartCounter(),
+                counter: cartController.productCounter(),
                 icon: const Icon(Icons.shopping_cart, color: Colors.white),
                 label: Text('My cart', style: TextStyle(color: Colors.white)))
           ],
@@ -40,10 +41,10 @@ class _ShopPageState extends State<ShopPage> {
             children: [
               Align(
                 alignment: Alignment.topLeft,
-                child: Dropdown<MyCategory>(
-                  items: MyCategory.sampleData,
+                child: Dropdown<Category>(
+                  items: Category.sampleData,
                   onSelected: (categoryFilter) {
-                    controller.sortProduct(filter: categoryFilter);
+                    shopController.sortProduct(filter: categoryFilter);
                     setState(() {});
                   },
                 ),
@@ -51,16 +52,16 @@ class _ShopPageState extends State<ShopPage> {
               SizedBox(height: 12),
               Wrap(
                 children: List.generate(
-                    controller.products.length,
+                    shopController.products.length,
                     (index) => AnimatedSwitcher(
                           duration: const Duration(milliseconds: 600),
                           transitionBuilder: (child, animation) =>
                               ScaleTransition(scale: animation, child: child),
                           child: ProductItem(
-                            key: ValueKey<String>(viewProducts[index].name),
-                            product: viewProducts[index],
+                            key: ValueKey<String>(shopController.viewProducts[index].name),
+                            product: shopController.viewProducts[index],
                             onPressed: () {
-                              controller.addCart(viewProducts[index]);
+                              cartController.addProduct(shopController.viewProducts[index]);
                               setState(() {});
                             },
                           ),

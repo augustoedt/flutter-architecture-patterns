@@ -1,17 +1,17 @@
-class MyCategory{
+class Category{
   final String name;
   final int id;
 
-  MyCategory({this.name, this.id});
+  Category({this.name, this.id});
 
   @override
   toString(){
     return name ?? '';
   }
 
-  static List<MyCategory> sampleData = [
-    MyCategory(name: 'All', id: 1),
-    MyCategory(name: 'Body wear', id: 2),
-    MyCategory(name: 'Legs wear', id: 3)
+  static List<Category> sampleData = [
+    Category(name: 'All', id: 1),
+    Category(name: 'Body wear', id: 2),
+    Category(name: 'Legs wear', id: 3)
   ];
 }
