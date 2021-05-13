@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 
 
-/// Exposes the [fetch] method.
+/// Exposes the [fetch] method, instead of calling:
+///
+/// Widget build(BuildContext context) {
+///     final controller = InheritedProvider.of<MyController>(context);
+///     ...
+///
+/// Widget build(BuildContext context) {
+///     final controller = context.fetch<MyController>();
+///     ...
 extension FetchContext on BuildContext{
   T fetch<T>(){
     return InheritedProvider.of(this);
   }
 }
 
-/// Custom inherited controller provider
+/// Custom inherited controller provider, a very light dependency
+/// injection, inspired on MultiProvider.
 class InheritedProvider extends InheritedWidget {
   final Map<Type, Object> _controllers;
   InheritedProvider({
@@ -16,6 +25,7 @@ class InheritedProvider extends InheritedWidget {
     List controllers,
     Widget child,
   })  :
+      /// Convert List<Object> into Map<Type, Object>
       _controllers = {}..addEntries(controllers
           .map((e) => MapEntry(e.runtimeType, e))),
       super(key: key, child: child);
@@ -31,4 +41,7 @@ class InheritedProvider extends InheritedWidget {
   bool updateShouldNotify(InheritedProvider old) {
     return false;
   }
+
 }
+
+
