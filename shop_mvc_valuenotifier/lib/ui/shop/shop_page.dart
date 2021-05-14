@@ -13,7 +13,6 @@ class ShopPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final shopController = context.fetch<ShopController>();
     final cartController = context.fetch<CartController>();
-    print('Page rebuild');
     return Scaffold(
         appBar: AppBar(
           elevation: 5,
@@ -23,7 +22,6 @@ class ShopPage extends StatelessWidget {
             ValueListenableBuilder<int>(
               valueListenable: cartController.cartLength,
               builder: (_,int listenableValue, __) {
-                print("counter rebuild");
                 return CounterButton(
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (_) => CartPage()));
@@ -52,7 +50,6 @@ class ShopPage extends StatelessWidget {
               ValueListenableBuilder(
                   valueListenable: shopController.productsListNotifier,
                   builder: (_, listenableList, __) {
-                    print('productList rebuild');
                     return Wrap(
                         children: List.generate(
                             listenableList.length,

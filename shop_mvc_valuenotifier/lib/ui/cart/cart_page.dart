@@ -14,7 +14,6 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     final cartController = context.fetch<CartController>();
-    print('rebuild CartPage');
     return Scaffold(
         appBar: AppBar(
           title: Text('Cart'),
@@ -23,19 +22,11 @@ class _CartPageState extends State<CartPage> {
           child: ValueListenableBuilder<List<CartItem>>(
             valueListenable: cartController.cartListNotifier,
             builder: (_, listenableList, __) {
-              return Wrap(
-                  direction: Axis.vertical,
+              return Column(
                   children: listenableList.map((e) => TileCartItem(
                     item: e,
                     onRemove: cartController.removeProduct,
                   )).toList(),
-                  // children: List.generate(
-                  //     listenableList.length,
-                  //     (index) => TileCartItem(
-                  //         item: listenableList[index],
-                  //         onRemove: (product) {
-                  //           cartController.removeProduct(product);
-                  //         }))
               );
             },
           ),
