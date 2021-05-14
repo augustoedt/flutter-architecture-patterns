@@ -1,16 +1,14 @@
-# shop_mvc_valuenotifier
+# Shop App MVC Pattern with ValueNotifier + ValueListenableBuilder 
 
-A new Flutter application.
+A very simple Flutter Shop App that implements the MVC pattern for study purpose.
 
-## Getting Started
+InheritedWidget are needed to access controllers through dependency injection and value notifier as state manager. Its the most light reactivity management.
+ValueNotifier allows control what you want your app to update, whenever or wherever the data changes.
 
-This project is a starting point for a Flutter application.
+## Content
+- View: ShopView, CartView
+- Controller: ShopController, CartController
+- Model: Category, Product, CartItem
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## State and Reactivity Management
+- ValueNotifier + ValueListenableBuilder
